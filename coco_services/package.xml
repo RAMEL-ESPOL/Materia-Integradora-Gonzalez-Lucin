@@ -4,7 +4,7 @@
   <version>0.0.0</version>
   <description>Servicios ROS personalizados para comunicación con Android via rosbridge</description>
 
-  <maintainer email="jslucin@@gmail.com">juan</maintainer>
+  <maintainer email="jslucin@gmail.com">juan</maintainer>
   <license>Apache License 2.0</license>
 
   <!-- Cambiado a ament_cmake -->
