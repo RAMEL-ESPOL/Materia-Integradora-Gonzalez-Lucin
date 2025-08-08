@@ -38,7 +38,7 @@ cd ~/ros2tesis_ws
 
 ```bash
 cd src
-git clone https://github.com/TuUsuario/TesisAvance.git
+git clone https://github.com/egonzalezauh/Materia-Integradora-Gonzalez-Lucin.git
 cd ..
 ```
 
