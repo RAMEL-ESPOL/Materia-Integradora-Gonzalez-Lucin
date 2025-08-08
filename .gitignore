@@ -1,0 +1,51 @@
+# === ROS 2 build artifacts ===
+build/
+install/
+log/
+
+# === ROS 2 launch logs ===
+*.log
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# === CMake ===
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# === VSCode config (opcional) ===
+.vscode/
+
+# === Modelos y binarios pesados ===
+*.db
+*.onnx
+*.pb
+*.pt
+*.tflite
+*.h5
+*.pkl
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.jpg
+*.png
+
+# === Archivos temporales del sistema o editores ===
+*.swp
+*.tmp
+*.bak
+*.~*
+.DS_Store
+Thumbs.db
+
+# === Carpeta de resultados temporales ===
+results/
+
+# === Archivos de backup personalizados ===
+*backup.py

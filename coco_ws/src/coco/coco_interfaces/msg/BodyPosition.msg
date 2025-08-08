@@ -1,0 +1,18 @@
+float32 right_shoulder_elbow_zy
+float32 right_shoulder_elbow_yx
+float32 right_elbow_wrist_zy
+float32 right_elbow_wrist_yx
+
+float32 left_shoulder_elbow_zy
+float32 left_shoulder_elbow_yx
+float32 left_elbow_wrist_zy
+float32 left_elbow_wrist_yx
+
+float32 right_wrist_x
+float32 right_wrist_y
+float32 left_wrist_x
+float32 left_wrist_y
+
+float32 shoulder_tilt_angle 
+
+bool is_valid

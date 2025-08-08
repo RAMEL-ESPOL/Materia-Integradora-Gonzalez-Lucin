@@ -1,0 +1,5 @@
+string player_name
+---
+bool success
+string message
+
