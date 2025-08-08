@@ -13,8 +13,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 
 install(PROGRAMS
-  launch/launch_master_service
-  launch/launch_listener
+  launch/launch_master_service.py
+  launch/launch_listener.py
   
   DESTINATION lib/${PROJECT_NAME}
 )
