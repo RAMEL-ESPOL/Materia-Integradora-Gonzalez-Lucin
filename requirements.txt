@@ -1,0 +1,6 @@
+mediapipe==0.10.9
+tensorflow==2.15.0      # o tensorflow-cpu, según tu entorno
+numpy>=1.23,<2.0
+opencv-python==4.9.0.80 # si prefieres cv2 de pip (o usa python3-opencv del apt)
+gTTS==2.5.1             # si usas TTS en speaker_node
+pygame==2.5.2 
