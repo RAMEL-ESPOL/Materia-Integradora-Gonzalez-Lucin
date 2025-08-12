@@ -44,42 +44,35 @@ cd ..
 
 ### 3. Instalar dependencias del sistema
 
+Opción A — ROS‑GZ (Ignition/Gazebo moderno)
+
 ```bash
-sudo apt install python3-colcon-common-extensions
 sudo apt update && sudo apt install -y \
-  python3-colcon-common-extensions \
-  python3-opencv python3-pip \
-  # Cámara, imágenes y TF
-  ros-humble-usb-cam \
-  ros-humble-cv-bridge \
-  ros-humble-image-transport \
-  # Estado del robot y descripción
-  ros-humble-robot-state-publisher \
-  ros-humble-joint-state-publisher \
-  ros-humble-joint-state-publisher-gui \
-  ros-humble-xacro \
-  # Control (ROS 2 Control)
-  ros-humble-ros2controlcli \
-  ros-humble-joint-trajectory-controller \
-  ros-humble-joint-state-broadcaster \
-  # Simulación (usar ros_gz; si usas Gazebo clásico, ver nota abajo)
-  ros-humble-ros-gz-sim \
-  ros-humble-ros-gz-bridge \
-  ros-humble-gz-ros2-control \
-  # MoveIt (config y visualización)
-  ros-humble-moveit-ros-move-group \
-  ros-humble-moveit-kinematics \
-  ros-humble-moveit-planners \
-  ros-humble-moveit-simple-controller-manager \
-  ros-humble-moveit-configs-utils \
-  ros-humble-moveit-ros-visualization \
-  ros-humble-moveit-ros-warehouse \
-  ros-humble-moveit-setup-assistant \
+  python3-colcon-common-extensions python3-pip python3-opencv \
+  ros-humble-desktop \
+  ros-humble-moveit \
+  ros-humble-ros2-control ros-humble-ros2-controllers \
+  ros-humble-ros-gz ros-humble-gz-ros2-control \
+  ros-humble-rosbridge-suite \
   ros-humble-warehouse-ros-mongo \
-  # Rosbridge (comunicación con la app)
-  python3-autobahn \
-  python3-twisted \
-  python3-ujson
+  ros-humble-usb-cam ros-humble-xacro
+
+
+```
+
+Opción B — Gazebo clásico
+
+```bash
+sudo apt update && sudo apt install -y \
+  python3-colcon-common-extensions python3-pip python3-opencv \
+  ros-humble-desktop \
+  ros-humble-moveit \
+  ros-humble-ros2-control ros-humble-ros2-controllers \
+  ros-humble-gazebo-ros \
+  ros-humble-rosbridge-suite \
+  ros-humble-warehouse-ros-mongo \
+  ros-humble-usb-cam ros-humble-xacro
+
 
 ```
 
