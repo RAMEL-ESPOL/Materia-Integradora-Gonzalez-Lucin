@@ -21,7 +21,7 @@ class GameManager(Node):
         self.get_logger().info("🕹️ Juego de memoria con posturas iniciado")
 
         # Configuraciones
-        self.TIME_LIMIT = 5
+        self.TIME_LIMIT = 10
         self.MAX_ATTEMPTS = 3
         self.POSTURES = [
             "Brazo derecho arriba", "Brazo izquierdo arriba", "Brazos en x", "Puño derecho", "Puño izquierdo",
@@ -201,7 +201,7 @@ class GameManager(Node):
                     self.show_message("Ayuda 2, te doy más tiempo")
                     self.last_help_shown = 2
 
-                timeout = self.TIME_LIMIT + 5
+                timeout = self.TIME_LIMIT + 10
                 sequence_now = full_sequence
 
 
@@ -224,7 +224,7 @@ class GameManager(Node):
                 self.show_message(f" {self.POSTURES[pose_id].upper()}")
                 
 
-            self.show_message("Ahora tu repite la secuencia")
+            self.show_message("Ahora tu repite las posturas")
 
             
 

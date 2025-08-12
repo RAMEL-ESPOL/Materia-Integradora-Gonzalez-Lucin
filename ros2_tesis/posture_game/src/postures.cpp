@@ -43,7 +43,7 @@ bool PostureDetector::is_fist_closed(const std::vector<MockLandmark>& lm) const 
     const MockLandmark& thumb_ip = lm[3];
     float thumb_dist = euclidean(thumb_tip, thumb_ip);
 
-    return bent_fingers >= 3 && thumb_dist < 0.05f;
+    return bent_fingers >= 2 && thumb_dist < THUMB_DIST_THRESHOLD;
 }
 
 bool PostureDetector::is_right_fist_exclusive(const std::vector<MockLandmark>& right_hand,
@@ -85,7 +85,7 @@ bool PostureDetector::is_right_arm_horizontal(const std::vector<MockLandmark>& l
     cos_angle = std::max(-1.0f, std::min(1.0f, cos_angle));
     float angle = std::acos(cos_angle) * (180.0f / M_PI);
 
-    bool altura = std::abs(r_shoulder.y - r_wrist.y) < 0.05f;
+    bool altura = std::abs(r_shoulder.y - r_wrist.y) < HEIGHT_TOLERANCE;
     bool brazo_derecho_ok = angle > ANGLE_THRESHOLD && altura;
 
     bool brazo_izquierdo_abajo = std::abs(l_shoulder.y - l_wrist.y) > 0.12f ||
@@ -114,7 +114,7 @@ bool PostureDetector::is_left_arm_horizontal(const std::vector<MockLandmark>& lm
     cos_angle = std::max(-1.0f, std::min(1.0f, cos_angle));
     float angle = std::acos(cos_angle) * (180.0f / M_PI);
 
-    bool altura = std::abs(l_shoulder.y - l_wrist.y) < 0.05f;
+    bool altura = std::abs(l_shoulder.y - l_wrist.y) < HEIGHT_TOLERANCE;
     bool brazo_izquierdo_ok = angle > ANGLE_THRESHOLD && altura;
 
     bool brazo_derecho_abajo = std::abs(r_shoulder.y - r_wrist.y) > 0.12f ||

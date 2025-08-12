@@ -51,13 +51,24 @@ private:
     const int RIGHT_WRIST = 16;
 
     // Umbrales
-    const float ANGLE_THRESHOLD = 160.0f;
-    const float VERTICAL_THRESHOLD = 0.15f;
-    const float HORIZONTAL_THRESHOLD = 0.08f;
-    const float VERTICAL_DIFF_THRESHOLD = 0.07f;
-    const float WRIST_DIST_THRESHOLD = 0.1f;
-    const float SIMILAR_HEIGHT_THRESHOLD = 0.08f;
-    const float NOSE_TOUCH_THRESHOLD = 0.10f;
+    // Umbral de angulo para brazo extendido horizontalmente - Brazos horizontales 
+    const float ANGLE_THRESHOLD = 140.0f;
+    // Umbral que exige que la muñeca quede por encima (o suficientemente cerca) del hombro en la pantalla - Brazo levantado
+    const float VERTICAL_THRESHOLD = 0.10f;
+    // Umbral que mide la distancia horizontal (eje x) entre hombro y muñeca. - Brazo levantado
+    const float HORIZONTAL_THRESHOLD = 0.12f;
+    // Umbral auxiliar (borrar potencialmente)
+    const float VERTICAL_DIFF_THRESHOLD = 0.11f;
+    // Umbral de distancia euclidiana entre munecas - Brazos en X
+    const float WRIST_DIST_THRESHOLD = 0.12f;
+    // Umbral de diferencia de altura entre hombros y munecas - Brazos en X
+    const float SIMILAR_HEIGHT_THRESHOLD = 0.13f;
+    // Umbral de distancia entre nariz y muneca - Nariz tocando muneca
+    const float NOSE_TOUCH_THRESHOLD = 0.13f;
+    // Umbral de altura entre el hombro y la muneca  - Brazos horizontales
+    const float HEIGHT_TOLERANCE   = 0.10f;
+    // Umbral de distancia entre los dedos - Puno cerrado
+    const float THUMB_DIST_THRESHOLD = 0.10f;
 };
 
 } // namespace posture_game
