@@ -34,7 +34,7 @@ mkdir -p ~/ros2tesis_ws/src
 cd ~/ros2tesis_ws
 ```
 
-### 2. Clonar el repositorio
+### 2. Clonar el repositorioEste proyecto implementa un sistema terapéutico basado en ROS 2, visión por computadora y un robot humanoide simulado. Su propósito es apoyar el tratamiento de niños con TDAH mediante un juego de memoria de posturas guiado por el robot, con registro emocional, retroalimentación auditiva y una aplicación móvil para el terapeuta.
 
 ```bash
 cd src
@@ -114,20 +114,33 @@ En la app:
 
 ---
 
-## Estructura del sistema ROS 2
+## Estructura de los paquetes del proyecto
 
 | Paquete | Función |
 |--------|---------|
-| `posture_game` | Lógica del juego, retroalimentación, estadísticas |
-| `checker_node` | Validación de posturas con visión por computadora |
-| `mediapipe_node` | Procesamiento de imagen con MediaPipe |
-| `detect_emotions_node` | Detección de emociones faciales con IA |
-| `movement_controller` | Control de posturas en el robot humanoide |
-| `coco_gazebo_sim` | Entorno de simulación en Gazebo |
-| `coco_services` | Scripts para iniciar nodos |
+| `posture_game` | Lógica del juego, retroalimentación, estadísticas, validacion de posturas, movimiento del robot, deteccion emocional|
+| `coco_gazebo_sim` | Entorno de simulación en Gazebo para visualizar los movimiento del robot|
+| `coco_services` | Servicio que permite mandar el nombre del paciente e inicios de launch de forma remota|
 | `rosbridge_server` | Comunicación WebSocket con la app móvil |
+| `coco_ws` | Contiene toda la informacion del robot, como urdf, sacro, comunicacion con Rviz y gazebo, ademas de implementaciones adicionales |
+| `dynamixel_sdk` | Capa de comunicación entre ROS 2 y los servomotores Dynamixel de ROBOTIS|
 
 ---
+
+## Estructura del paquete ros2_tesis (logica del juego)
+
+| Archivo | Función |
+|--------|---------|
+| `game_manage_node.py` | Nodo que controla la lógica del juego, retroalimentación, estadísticas, ayudas|
+| `detect_emotions_node.py` | Nodo que procesa imagenes y las cataloga gracias a un modelo entrenado con machine learning |
+| `mediapipe_node.py` | Nodo que realiza el procesamiento de imagen con MediaPipe, envia topico de imagenes crudo para ser usado en otro nodo que use Mediapipe|
+| `speaker_node.py` | Nodo que mediante un sistema TTS, convierte texto a voz |
+| `checker_node.cpp`| Nodo que realiza la validacion de la postura dependiendo del tiempo de respuesta y la postura a realizar |
+| `movement_publisher_node.cpp` | Nodo que publica al action que mueve el robot, la configuracion de los joints del robot|
+| `postures.cpp`| Scripts que contiene las condiciones para validar una postura basado en landmarks de Mediapipe|
+
+---
+
 
 ## Preguntas frecuentes
 
