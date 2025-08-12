@@ -64,7 +64,7 @@ private:
     // Umbral de diferencia de altura entre hombros y munecas - Brazos en X
     const float SIMILAR_HEIGHT_THRESHOLD = 0.13f;
     // Umbral de distancia entre nariz y muneca - Nariz tocando muneca
-    const float NOSE_TOUCH_THRESHOLD = 0.13f;
+    const float NOSE_TOUCH_THRESHOLD = 0.6f;
     // Umbral de altura entre el hombro y la muneca  - Brazos horizontales
     const float HEIGHT_TOLERANCE   = 0.10f;
     // Umbral de distancia entre los dedos - Puno cerrado
