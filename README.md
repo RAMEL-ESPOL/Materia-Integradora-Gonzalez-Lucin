@@ -34,7 +34,7 @@ mkdir -p ~/ros2tesis_ws/src
 cd ~/ros2tesis_ws
 ```
 
-### 2. Clonar el repositorioEste proyecto implementa un sistema terapéutico basado en ROS 2, visión por computadora y un robot humanoide simulado. Su propósito es apoyar el tratamiento de niños con TDAH mediante un juego de memoria de posturas guiado por el robot, con registro emocional, retroalimentación auditiva y una aplicación móvil para el terapeuta.
+### 2. Clonar el repositorio
 
 ```bash
 cd src
