@@ -53,6 +53,8 @@ install(PROGRAMS
   scripts/message.py
   scripts/speaker_node.py
   scripts/stats_manager.py
+  #Prueba
+  scripts/emotion_viewer_backup.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

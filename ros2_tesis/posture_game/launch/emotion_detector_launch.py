@@ -7,18 +7,27 @@ import os
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='usb_cam',
-            executable='usb_cam_node_exe',
-            name='usb_cam',
-            parameters=[os.path.join(
+        package='usb_cam',
+        executable='usb_cam_node_exe',
+        name='usb_cam',
+        parameters=[
+            os.path.join(
                 get_package_share_directory('posture_game'),
                 'config',
-                'usb_cam_params.yaml')],
-            output='log'
+                'usb_cam_params.yaml'
+            ),
+            {
+                'camera_name': 'cam_1',   # opcional, algo distinto a default_cam
+                'camera_info_url': ''        # vacío = no intentes cargar calibración
+            }
+        ],
+        output='log'
         ),
+
+
         Node(
             package='posture_game',
-            executable='detect_emotions_node',
+            executable='detect_emotions_node.py',
             name='emotion_detector',
             output='screen'
         ),
