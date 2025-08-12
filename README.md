@@ -89,11 +89,16 @@ sudo apt update && sudo apt install -y \
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 
-(Opcional) crear venv
+
+
+```
+
+### 4.5 Opcional, crear env para tener librerias correctas
+
+```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-
 
 ```
 
