@@ -55,6 +55,7 @@ install(PROGRAMS
   scripts/stats_manager.py
   #Prueba
   scripts/emotion_viewer_backup.py
+  scripts/visualizer_postures_node_backup.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
