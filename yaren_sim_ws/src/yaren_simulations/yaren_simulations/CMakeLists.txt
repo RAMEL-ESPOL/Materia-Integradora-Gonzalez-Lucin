@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(coco_simulations)
+project(yaren_simulations)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)

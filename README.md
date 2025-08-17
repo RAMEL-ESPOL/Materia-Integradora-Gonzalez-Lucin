@@ -38,7 +38,7 @@ cd ~/ros2tesis_ws
 
 ```bash
 cd src
-git clone https://github.com/egonzalezauh/Materia-Integradora-Gonzalez-Lucin.git
+git clone https://github.com/RAMEL-ESPOL/Materia-Integradora-Gonzalez-Lucin.git
 cd ..
 ```
 
@@ -167,7 +167,7 @@ En la app:
 
 ---
 
-## Estructura del paquete ros2_tesis (logica del juego)
+## Estructura del paquete yaren_memory (juego de memoria de posturas)
 
 | Archivo | Función |
 |--------|---------|

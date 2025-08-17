@@ -17,7 +17,7 @@ def generate_launch_description():
     print("urdf_file_name : {}".format(urdf_file_name))
 
     urdf = os.path.join(
-        get_package_share_directory('coco_description'),
+        get_package_share_directory('yaren_description'),
         'urdf',
         urdf_file_name)
 
@@ -36,7 +36,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
-            arguments=['-d', os.path.join(get_package_share_directory('coco_bringup'), 'config', 'coco_mimic.rviz')]),
+            arguments=['-d', os.path.join(get_package_share_directory('yaren_bringup'), 'config', 'coco_mimic.rviz')]),
         Node(
             package="usb_cam",
             executable="usb_cam_node_exe",
@@ -44,19 +44,19 @@ def generate_launch_description():
             output="screen",
         ),
         Node(
-            package='coco_arm_mimic',
+            package='yaren_arm_mimic',
             executable='body_points_detector.py',
             name='body_points_detector',
             output='screen'
         ),
         Node(
-            package='coco_arm_mimic',
+            package='yaren_arm_mimic',
             executable='body_tracker_node',
             name='body_tracker_node',
             output='screen'
         ),
         Node(
-            package='coco_arm_mimic',
+            package='yaren_arm_mimic',
             executable='coco_controller',
             name='coco_controller',
             output='screen'

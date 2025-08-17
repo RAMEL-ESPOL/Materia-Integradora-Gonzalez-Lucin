@@ -12,7 +12,7 @@ from launch import LaunchDescription
 def generate_launch_description():
     use_camera = LaunchConfiguration("use_camera", default="false")
 
-    moveit_config = MoveItConfigsBuilder("coco_description", package_name="coco_moveit2_config").to_moveit_configs()
+    moveit_config = MoveItConfigsBuilder("yaren_description", package_name="yaren_moveit2_config").to_moveit_configs()
 
     launch_package_path = moveit_config.package_path
 
@@ -21,9 +21,9 @@ def generate_launch_description():
     ld.add_action(DeclareBooleanLaunchArg("db",default_value=False,description="By default, we do not start a database (it can be large)",))
     ld.add_action(DeclareBooleanLaunchArg("debug",default_value=False,description="By default, we are not in debug mode",))
     if use_camera:
-        coco_bringup = os.path.join(get_package_share_directory('coco_bringup'), 'config', 'coco_rviz_camera.rviz')
+        coco_bringup = os.path.join(get_package_share_directory('yaren_bringup'), 'config', 'coco_rviz_camera.rviz')
     else:
-        coco_bringup = os.path.join(get_package_share_directory('coco_bringup'), 'config', 'coco_rviz_no_camera.rviz')
+        coco_bringup = os.path.join(get_package_share_directory('yaren_bringup'), 'config', 'coco_rviz_no_camera.rviz')
     ld.add_action(DeclareLaunchArgument("rviz_config",default_value=str(coco_bringup),))
     ld.add_action(DeclareLaunchArgument("use_camera",default_value="false",description="Whether to start the camera node",))
 

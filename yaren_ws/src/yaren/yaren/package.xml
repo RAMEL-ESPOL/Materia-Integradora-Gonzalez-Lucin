@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>coco</name>
+  <name>yaren</name>
   <version>0.0.0</version>
-  <description>Coco</description>
+  <description>Yaren</description>
   <maintainer email="iesusdavila@gmail.com">Iesus Davila</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <exec_depend>coco_arm_mimic</exec_depend>
-  <exec_depend>coco_bringup</exec_depend>
-  <exec_depend>coco_communication</exec_depend>
-  <exec_depend>coco_description</exec_depend>
-  <exec_depend>coco_face_display</exec_depend>
-  <exec_depend>coco_interfaces</exec_depend>
-  <exec_depend>coco_joysticks</exec_depend>
-  <exec_depend>coco_moveit2_config</exec_depend>
+  <exec_depend>yaren_arm_mimic</exec_depend>
+  <exec_depend>yaren_bringup</exec_depend>
+  <exec_depend>yaren_communication</exec_depend>
+  <exec_depend>yaren_description</exec_depend>
+  <exec_depend>yaren_face_display</exec_depend>
+  <exec_depend>yaren_interfaces</exec_depend>
+  <exec_depend>yaren_joysticks</exec_depend>
+  <exec_depend>yaren_moveit2_config</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

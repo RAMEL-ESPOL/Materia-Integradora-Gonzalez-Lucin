@@ -14,14 +14,14 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     gz_args = LaunchConfiguration('gz_args', default='')
 
-    pkg_share = FindPackageShare('coco_gazebo_sim').find('coco_gazebo_sim')
+    pkg_share = FindPackageShare('yaren_gazebo_sim').find('yaren_gazebo_sim')
 
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name='xacro')]),
             ' ',
             PathJoinSubstitution(
-                [FindPackageShare('coco_description'),
+                [FindPackageShare('yaren_description'),
                  'urdf', 'coco_description_sim.xacro.urdf']
             ),
         ]
@@ -40,7 +40,7 @@ def generate_launch_description():
         executable='create',
         output='screen',
         arguments=['-topic', 'robot_description',
-                   '-name', 'coco',
+                   '-name', 'yaren',
                     '-allow_renaming', 'true']
     )
 
