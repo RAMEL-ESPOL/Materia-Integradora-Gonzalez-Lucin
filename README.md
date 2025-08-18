@@ -127,7 +127,7 @@ LIBGL_ALWAYS_SOFTWARE=1 ros2 launch yaren_gazebo_sim coco_robot.launch.py
 ### 2. Iniciar el servicio principal
 
 ```bash
-ros2 run yaren_services launch_master_service
+ros2 run yaren_services launch_master_service.py
 ```
 
 ### 3. Conectar la app móvil por WebSocket
