@@ -1,40 +1,41 @@
-# Sistema Interactivo de Juego de Posturas para Niños con TDAH
+# Interactive Posture Game System for Children with ADHD
 
-Este proyecto implementa un sistema terapéutico basado en ROS 2, visión por computadora y un robot humanoide simulado. Su propósito es apoyar el tratamiento de niños con TDAH mediante un juego de memoria de posturas guiado por el robot, con registro emocional, retroalimentación auditiva y una aplicación móvil para el terapeuta.
-
----
-
-## Descripción general
-
-El sistema se compone de tres partes principales:
-
-1. Un conjunto de nodos en ROS 2 encargados de la lógica del juego, validación de posturas y reconocimiento emocional.
-2. Un entorno de simulación en Gazebo que representa al robot humanoide.
-3. Una aplicación móvil Android conectada por WebSocket para visualizar los resultados del niño y controlar el juego.
+This project implements a therapeutic system based on ROS 2, computer vision, and a simulated humanoid robot. Its purpose is to support the treatment of children with ADHD through a posture memory game guided by the robot, with emotional tracking, auditory feedback, and a mobile application for therapists.
 
 ---
 
-## Requisitos del sistema
+## Overview
 
-### Sistema operativo recomendado
+The system consists of three main components:
+
+1. A set of ROS 2 nodes responsible for game logic, posture validation, and emotion recognition.  
+2. A simulation environment in Gazebo that represents the humanoid robot.  
+3. An Android mobile application connected via WebSocket to visualize the child’s results and control the game.  
+
+---
+
+## System Requirements
+
+### Recommended Operating System
 
 - Ubuntu 22.04 LTS (Linux)
 
 ### ROS 2
 
-Desarrollado para **ROS 2 Humble**. Seguir la [guía oficial de instalación](https://docs.ros.org/en/humble/Installation.html).
+Developed for **ROS 2 Humble**. Follow the [official installation guide](https://docs.ros.org/en/humble/Installation.html).
 
+---
 
-## Instalación paso a paso
+## Step-by-step Installation
 
-### 1. Crear el workspace
+### 1. Create the workspace
 
 ```bash
 mkdir -p ~/ros2tesis_ws/src
 cd ~/ros2tesis_ws
 ```
 
-### 2. Clonar el repositorio
+### 2. Clone the repository
 
 ```bash
 cd src
@@ -42,67 +43,43 @@ git clone https://github.com/RAMEL-ESPOL/Materia-Integradora-Gonzalez-Lucin.git
 cd ..
 ```
 
-### 3. Instalar dependencias del sistema
+### 3. Install system dependencies
 
-Opción A — ROS‑GZ (Ignition/Gazebo moderno)
-
-```bash
-sudo apt update && sudo apt install -y \
-  python3-colcon-common-extensions python3-pip python3-opencv \
-  ros-humble-desktop \
-  ros-humble-moveit \
-  ros-humble-ros2-control ros-humble-ros2-controllers \
-  ros-humble-ros-gz ros-humble-gz-ros2-control \
-  ros-humble-rosbridge-suite \
-  ros-humble-warehouse-ros-mongo \
-  ros-humble-usb-cam ros-humble-xacro
-
-
-```
-
-Opción B — Gazebo clásico
+**Option A — ROS-GZ (Ignition/modern Gazebo)**
 
 ```bash
-sudo apt update && sudo apt install -y \
-  python3-colcon-common-extensions python3-pip python3-opencv \
-  ros-humble-desktop \
-  ros-humble-moveit \
-  ros-humble-ros2-control ros-humble-ros2-controllers \
-  ros-humble-gazebo-ros \
-  ros-humble-rosbridge-suite \
-  ros-humble-warehouse-ros-mongo \
-  ros-humble-usb-cam ros-humble-xacro
-
-
+sudo apt update && sudo apt install -y   python3-colcon-common-extensions python3-pip python3-opencv   ros-humble-desktop   ros-humble-moveit   ros-humble-ros2-control ros-humble-ros2-controllers   ros-humble-ros-gz ros-humble-gz-ros2-control   ros-humble-rosbridge-suite   ros-humble-warehouse-ros-mongo   ros-humble-usb-cam ros-humble-xacro
 ```
 
-### 4. Instalar dependencias ROS 2 del proyecto
+**Option B — Classic Gazebo**
+
+```bash
+sudo apt update && sudo apt install -y   python3-colcon-common-extensions python3-pip python3-opencv   ros-humble-desktop   ros-humble-moveit   ros-humble-ros2-control ros-humble-ros2-controllers   ros-humble-gazebo-ros   ros-humble-rosbridge-suite   ros-humble-warehouse-ros-mongo   ros-humble-usb-cam ros-humble-xacro
+```
+
+### 4. Install ROS 2 dependencies for the project
 
 ```bash
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
-
-
-
 ```
 
-### 4.5 Opcional, crear env para tener librerias correctas
+### 4.5 Optional — Create a virtual environment for dependencies
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-
 ```
 
-### 5. Compilar el proyecto
+### 5. Build the project
 
 ```bash
 colcon build
 source install/setup.bash
 ```
 
-Agregar al `.bashrc`:
+Add to `.bashrc`:
 
 ```bash
 echo "source ~/ros2tesis_ws/install/setup.bash" >> ~/.bashrc
@@ -110,27 +87,27 @@ echo "source ~/ros2tesis_ws/install/setup.bash" >> ~/.bashrc
 
 ---
 
-## Ejecución del sistema
+## Running the System
 
-### 1. Iniciar simulación del robot
+### 1. Start the robot simulation
 
 ```bash
-ros2 launch coco_gazebo_sim coco_robot.launch.py
+ros2 launch yaren_gazebo_sim coco_robot.launch.py
 ```
 
-Opción alternativa (para computadoras de bajos recursos):
+**Alternative (for low-resource CPU/GPU computers):**
 
 ```bash
 LIBGL_ALWAYS_SOFTWARE=1 ros2 launch yaren_gazebo_sim coco_robot.launch.py
 ```
 
-### 2. Iniciar el servicio principal
+### 2. Start the main service
 
 ```bash
 ros2 run yaren_services launch_master_service.py
 ```
 
-### 3. Conectar la app móvil por WebSocket
+### 3. Connect the mobile app via WebSocket
 
 ```bash
 ros2 launch rosbridge_server rosbridge_websocket_launch.xml
@@ -138,58 +115,58 @@ ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 
 ---
 
-## Aplicación móvil
+## Mobile Application
 
-Desarrollada en **Kotlin (Android Studio)**.
+Developed in **Kotlin (Android Studio)**.
 
-1. Abre el proyecto en Android Studio.
-2. Conecta un dispositivo físico o emulador.
-3. Ejecuta el proyecto.
+1. Open the project in Android Studio.  
+2. Connect a physical device or emulator.  
+3. Run the project.  
 
-En la app:
-
-- Ingresa la IP del computador con ROS 2.
-- Presiona *Conectar*.
-- Inicia el juego o accede a reportes.
-
----
-
-## Estructura de los paquetes del proyecto
-
-| Paquete | Función |
-|--------|---------|
-| `posture_game` | Lógica del juego, retroalimentación, estadísticas, validacion de posturas, movimiento del robot, deteccion emocional|
-| `coco_gazebo_sim` | Entorno de simulación en Gazebo para visualizar los movimiento del robot|
-| `coco_services` | Servicio que permite mandar el nombre del paciente e inicios de launch de forma remota|
-| `rosbridge_server` | Comunicación WebSocket con la app móvil |
-| `coco_ws` | Contiene toda la informacion del robot, como urdf, sacro, comunicacion con Rviz y gazebo, ademas de implementaciones adicionales |
-| `dynamixel_sdk` | Capa de comunicación entre ROS 2 y los servomotores Dynamixel de ROBOTIS|
+Inside the app:  
+- Enter the IP of the computer running ROS 2.  
+- Press *Connect*.  
+- Start the game or access reports.  
 
 ---
 
-## Estructura del paquete yaren_memory (juego de memoria de posturas)
+## Project Package Structure
 
-| Archivo | Función |
-|--------|---------|
-| `game_manage_node.py` | Nodo que controla la lógica del juego, retroalimentación, estadísticas, ayudas|
-| `detect_emotions_node.py` | Nodo que procesa imagenes y las cataloga gracias a un modelo entrenado con machine learning |
-| `mediapipe_node.py` | Nodo que realiza el procesamiento de imagen con MediaPipe, envia topico de imagenes crudo para ser usado en otro nodo que use Mediapipe|
-| `speaker_node.py` | Nodo que mediante un sistema TTS, convierte texto a voz |
-| `checker_node.cpp`| Nodo que realiza la validacion de la postura dependiendo del tiempo de respuesta y la postura a realizar |
-| `movement_publisher_node.cpp` | Nodo que publica al action que mueve el robot, la configuracion de los joints del robot|
-| `postures.cpp`| Scripts que contiene las condiciones para validar una postura basado en landmarks de Mediapipe|
+| Package | Function |
+|---------|----------|
+| `posture_game` | Game logic, feedback, statistics, posture validation, robot movement, emotion detection |
+| `coco_gazebo_sim` | Gazebo simulation environment to visualize robot movements |
+| `coco_services` | Service to send patient names and remotely start launches |
+| `rosbridge_server` | WebSocket communication with the mobile app |
+| `coco_ws` | Contains robot information such as URDF, xacro, RViz and Gazebo communication, plus additional implementations |
+| `dynamixel_sdk` | Communication layer between ROS 2 and ROBOTIS Dynamixel servomotors |
 
 ---
 
+## Package Structure: yaren_memory (posture memory game)
 
-## Preguntas frecuentes
+| File | Function |
+|------|----------|
+| `game_manage_node.py` | Node that controls game logic, feedback, statistics, and assistance |
+| `detect_emotions_node.py` | Node that processes images and classifies them using a trained machine learning model |
+| `mediapipe_node.py` | Node that performs image processing with MediaPipe and publishes raw topics for other nodes |
+| `speaker_node.py` | Node that converts text to speech via a TTS system |
+| `checker_node.cpp` | Node that validates postures according to response time and required pose |
+| `movement_publisher_node.cpp` | Node that publishes robot joint configuration commands to move the robot |
+| `postures.cpp` | Script containing conditions to validate a posture based on MediaPipe landmarks |
 
-**¿Puedo usar el sistema sin el robot físico?**  
-Sí. Funciona completamente en simulación usando Gazebo.
+---
 
-**¿Qué cámara se recomienda?**  
-Cualquier cámara USB compatible con `usb_cam`.
+## FAQ
 
-**¿Dónde se guardan los reportes?**  
-Como archivos `.json`, accesibles desde la aplicación móvil.
+**Can I use the system without the physical robot?**  
+Yes. It works entirely in simulation using Gazebo.
 
+**Which camera is recommended?**  
+Any USB camera compatible with `usb_cam`.
+
+**Where are the reports stored?**  
+As `.json` files, accessible from the mobile app.
+
+**Where can I find the mobile application repository?**  
+The repository is available at: [https://github.com/RAMEL-ESPOL/YarenApp.git](https://github.com/RAMEL-ESPOL/YarenApp.git)
